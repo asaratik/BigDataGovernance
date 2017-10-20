@@ -1,0 +1,30 @@
+[
+	{
+		"label":"protected",
+		"target":"//email"
+	},
+	{
+		"label":"protected",
+		"target":"//past_employment"
+	},
+	{
+		"label":"public",
+		"target":"/"
+	},
+	{
+		"label":"private",
+		"target":"//identification"
+	},
+	{
+		"label":"protected",
+		"target":"/personalRecord/identification/e_id"
+	},
+	{
+		"label":"protected",
+		"condition":{
+			"path":"company",
+			"op": ">",
+			"value": "UTSA"
+		}		
+	}
+]

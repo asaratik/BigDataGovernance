@@ -2,6 +2,7 @@ from functools import wraps
 from flask import Flask, flash, redirect, render_template, request, session, abort, send_from_directory, url_for
 from jinja2 import Template
 import os
+import labac.ObQuery as ob
 
 app = Flask(__name__)
 
@@ -59,6 +60,12 @@ def page_not_found(e):
 @app.route('/favicon.ico')
 def favicon():
     return send_from_directory(os.path.join(app.root_path, 'static'), 'img/favicon.ico')
+
+
+@app.route('/obq')
+def obq():
+    return ob.ContentFilter(content_file="employee.json", policy_file="path_label_policy.json",\
+                                    query="/personalRecord",user_clearance="protected").apply()
 
 
 @app.route('/login', methods=['POST'])
